@@ -3,10 +3,14 @@ package com.will.commons.json;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.ToNumberPolicy;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
 
 /**
+ * Gson工具类
  * @author Will.WT
  * @date 2022/10/28 23:41
  */
@@ -18,8 +22,16 @@ public class GsonHelper {
             .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
             .create();
 
+    public static Gson getInstance(){
+        return gson;
+    }
 
 
+    /**
+     * 序列化
+     * @param src
+     * @return
+     */
     public static String toJson(Object src){
         return getInstance().toJson(src);
     }
@@ -28,16 +40,30 @@ public class GsonHelper {
         return getInstance().toJson(src, type);
     }
 
+
+    /**
+     * 反序列化
+     * @param json
+     * @param classz
+     * @param <T>
+     * @return
+     */
     public static <T> T fromJson(String json, Class<T> classz){
         return getInstance().fromJson(json, classz);
     }
 
-    public static <T> T fromJson(String json, Type type){
-        return getInstance().fromJson(json, type);
+    public static Map<String, Object> fromJsonMap(String json){
+        return getInstance().fromJson(json,
+                                new TypeToken<Map<String, Object>>() {}.getType());
     }
 
-    public static Gson getInstance(){
-        return gson;
+    public static List<Map<String, Object>> fromJsonList(String json){
+        return getInstance().fromJson(json,
+                                new TypeToken<List<Map<String, Object>>>() {}.getType());
+    }
+
+    public static <T> T fromJson(String json, Type type){
+        return getInstance().fromJson(json, type);
     }
 
 }
