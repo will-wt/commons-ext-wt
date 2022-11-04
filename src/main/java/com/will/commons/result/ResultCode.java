@@ -11,6 +11,10 @@ public enum ResultCode {
      */
     SUCCESS(200, "success"),
 
+    NOT_FOUND(404, "not found"),
+
+    SYSTEM_ERROR(500, "system error"),
+
     ;
 
     private int code;
