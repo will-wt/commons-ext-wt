@@ -16,13 +16,30 @@ import java.util.Map;
  */
 public class GsonHelper {
 
-    private static Gson gson = new GsonBuilder()
-            .setDateFormat("yyyy-MM-dd HH:mm:ss")
-            // 反序列化时object转number策略，int/long转成long
-            .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
-            .create();
+    private static Gson gson = null;
+
+    /* 空类，用于加锁 */
+    private static class Lock { };
+    private static Object lock = new Lock();
 
     public static Gson getInstance(){
+        if (gson != null){
+            return gson;
+        }
+
+        // 加锁，防并发
+        synchronized (lock){
+            if (gson != null){
+                return gson;
+            }
+
+            gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    // 反序列化时object转number策略，int/long转成long
+                    .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+                    .create();
+        }
+
         return gson;
     }
 
