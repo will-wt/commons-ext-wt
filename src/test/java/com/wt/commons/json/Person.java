@@ -1,4 +1,4 @@
-package com.will.commons.json;
+package com.wt.commons.json;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

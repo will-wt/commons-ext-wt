@@ -1,4 +1,4 @@
-package com.will.commons.json;
+package com.wt.commons.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,4 +1,4 @@
-package com.will.commons.validation;
+package com.wt.commons.validation;
 
 import org.junit.Test;
 

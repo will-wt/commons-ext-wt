@@ -1,4 +1,4 @@
-package com.will.commons.validation.groups;
+package com.wt.commons.validation.groups;
 
 import javax.validation.groups.Default;
 

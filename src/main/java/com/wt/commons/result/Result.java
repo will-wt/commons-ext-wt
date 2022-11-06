@@ -1,4 +1,4 @@
-package com.will.commons.result;
+package com.wt.commons.result;
 
 /**
  * @author Will.WT

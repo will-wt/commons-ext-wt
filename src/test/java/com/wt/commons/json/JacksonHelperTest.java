@@ -1,4 +1,4 @@
-package com.will.commons.json;
+package com.wt.commons.json;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.will.commons.json;
+package com.wt.commons.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
