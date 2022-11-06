@@ -11,9 +11,21 @@ public enum ResultCode {
      */
     SUCCESS(200, "success"),
 
+    REQUEST_ERROR(400, "request error"),
+    REQUEST_UNAUTHORIZED(401, "request unauthorized"),
+    PERMISSION_EXPIRED(402, "permission expired"),
+    REQUEST_FORBIDDEN(403, "request forbidden"),
     NOT_FOUND(404, "not found"),
 
+    TOO_MANY_REQUEST(405, "too many request"),
+    PARAMETER_ERROR(406, "parameter error"),
+    REQUEST_TIMEOUT(408, "request timeout"),
+
+
     SYSTEM_ERROR(500, "system error"),
+    UNKNOWN_EXCEPTION(501, "unknown exception"),
+    SERVER_UNAVAILABLE(503, "server unavailable"),
+    SERVER_TIMEOUT(504, "server timeout"),
 
     ;
 
